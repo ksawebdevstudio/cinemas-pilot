@@ -170,8 +170,8 @@ def fetch_overture(region, release):
                 "taxonomy_primary": tax.get("primary"),
             }
             addrs = row.get("addresses") or []
-            if addrs:
-                a = addrs[0] or {}
+            if addrs and not re.match(r"\s*p\.?\s*o\.?\s*box", (addrs[0] or {}).get("freeform") or "", re.I):
+                a = addrs[0] or {}  # skip P.O. boxes: not a place a visitor can drive to
                 rec["city"] = a.get("locality") or ""
                 rec["address"] = ", ".join(x for x in [a.get("freeform"), a.get("locality"), " ".join(
                     x for x in [a.get("region"), a.get("postcode")] if x)] if x)
