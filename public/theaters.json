@@ -1,0 +1,501 @@
+{
+  "generated": "2026-11-17T06:02:30Z",
+  "sources": {
+    "osm": "Overpass API",
+    "overture_release": "2026-10-21.0"
+  },
+  "attribution": "© OpenStreetMap contributors (ODbL); Overture Maps Foundation",
+  "license": "ODbL-1.0",
+  "count": 25,
+  "theaters": [
+    {
+      "id": "1010-movie-colony",
+      "name": "1010 Movie Colony",
+      "brand": "",
+      "lat": 33.833339,
+      "lon": -116.536573,
+      "address": "1010 E Via Altamira, Palm Springs, CA 92262-6118",
+      "website": "http://www.vrbo.com/513729",
+      "imax": false,
+      "sources": [
+        "overture"
+      ],
+      "source_ids": {
+        "overture": "0bd35ff9-8901-4933-9ec5-b71fd0b10ba0"
+      },
+      "confidence": "low",
+      "region": "coachella-valley",
+      "showtimes_key": null
+    },
+    {
+      "id": "camelot-theatres",
+      "name": "Camelot Theatres",
+      "brand": "",
+      "lat": 33.820007,
+      "lon": -116.521188,
+      "address": "2300 E Baristo Rd, Palm Springs, CA 92262",
+      "website": "https://www.camelottheatres.com/",
+      "imax": false,
+      "sources": [
+        "osm",
+        "overture"
+      ],
+      "source_ids": {
+        "osm": "way/265123671",
+        "overture": "9d6fbb17-ff9f-46a0-9424-c787f5666a0f"
+      },
+      "confidence": "high",
+      "region": "coachella-valley",
+      "showtimes_key": null
+    },
+    {
+      "id": "cdm-movie-theatre",
+      "name": "CDM Movie Theatre",
+      "brand": "",
+      "lat": 33.782746,
+      "lon": -116.544536,
+      "address": "2700 S Palm Canyon Dr, Palm Springs, CA 92264-9335",
+      "website": "",
+      "imax": false,
+      "sources": [
+        "overture"
+      ],
+      "source_ids": {
+        "overture": "1e81b162-df2c-4209-8742-0468475dfa0e"
+      },
+      "confidence": "low",
+      "region": "coachella-valley",
+      "showtimes_key": null
+    },
+    {
+      "id": "century-theatres-at-the-river",
+      "name": "Century Theatres at The River",
+      "brand": "Century Theatres",
+      "lat": 33.740093,
+      "lon": -116.409684,
+      "address": "71800 Highway 111, Rancho Mirage, 92270",
+      "website": "https://www.cinemark.com/theatre-detail.aspx?node_id=1684",
+      "imax": false,
+      "sources": [
+        "osm",
+        "overture"
+      ],
+      "source_ids": {
+        "osm": "relation/4005082",
+        "overture": "6b00a36a-9463-474b-948f-9a01d2fc4f9e"
+      },
+      "confidence": "high",
+      "region": "coachella-valley",
+      "showtimes_key": null
+    },
+    {
+      "id": "century-theatres-la-quinta",
+      "name": "Century Theatres La Quinta",
+      "brand": "Century Theatres",
+      "lat": 33.708953,
+      "lon": -116.292641,
+      "address": "46800 Washington Street, La Quinta, CA 92253",
+      "website": "http://www.cinemark.com/theatre-1126",
+      "imax": false,
+      "sources": [
+        "osm",
+        "overture"
+      ],
+      "source_ids": {
+        "osm": "way/488592207",
+        "overture": "9d16376f-5de6-4a52-a645-51ff573c8e4e"
+      },
+      "confidence": "high",
+      "region": "coachella-valley",
+      "showtimes_key": null
+    },
+    {
+      "id": "cinema-diverse",
+      "name": "Cinema Diverse",
+      "brand": "",
+      "lat": 33.81999,
+      "lon": -116.52111,
+      "address": "2300 E Baristo Rd, Palm Springs, CA 92262-7128",
+      "website": "http://cinemadiverse.org/",
+      "imax": false,
+      "sources": [
+        "overture"
+      ],
+      "source_ids": {
+        "overture": "398292d9-d2d5-4936-a455-b9348559d74f"
+      },
+      "confidence": "low",
+      "region": "coachella-valley",
+      "showtimes_key": null
+    },
+    {
+      "id": "cinemark-century-at-the-river-and-xd",
+      "name": "Cinemark Century at the River and XD",
+      "brand": "Cinemark",
+      "lat": 33.739678,
+      "lon": -116.409738,
+      "address": "71800 CA-111, Rancho Mirage, CA 92270",
+      "website": "https://cinemark.com/",
+      "imax": false,
+      "sources": [
+        "overture"
+      ],
+      "source_ids": {
+        "overture": "c6a2c195-a621-4f7f-85f4-5e225a44c19b"
+      },
+      "confidence": "low",
+      "region": "coachella-valley",
+      "showtimes_key": null
+    },
+    {
+      "id": "cinemas-palme-d-or",
+      "name": "Cinemas Palme D'Or",
+      "brand": "",
+      "lat": 33.724194,
+      "lon": -116.394227,
+      "address": "72840 Highway 111, Palm Desert, CA 92260",
+      "website": "http://www.thepalme.com",
+      "imax": false,
+      "sources": [
+        "overture"
+      ],
+      "source_ids": {
+        "overture": "11fc8420-f3ff-44f8-9f44-80adb85ff0a8"
+      },
+      "confidence": "low",
+      "region": "coachella-valley",
+      "showtimes_key": null
+    },
+    {
+      "id": "circle-theatre-acting-co",
+      "name": "Circle Theatre Acting Co.",
+      "brand": "",
+      "lat": 33.714152,
+      "lon": -116.24042,
+      "address": "81750 Avenue 46, Indio, CA 92201-3911",
+      "website": "",
+      "imax": false,
+      "sources": [
+        "overture"
+      ],
+      "source_ids": {
+        "overture": "8b9ef977-2c45-4205-a1aa-10aee1d8556c"
+      },
+      "confidence": "low",
+      "region": "coachella-valley",
+      "showtimes_key": null
+    },
+    {
+      "id": "d-place-entertainment",
+      "name": "D'Place Entertainment",
+      "brand": "",
+      "lat": 33.78108,
+      "lon": -116.46304,
+      "address": "36850 Pickfair St, Cathedral City, CA 92234-1325",
+      "website": "http://dplaceentertainment.com/mary-pickford",
+      "imax": false,
+      "sources": [
+        "overture"
+      ],
+      "source_ids": {
+        "overture": "09ee751d-156a-41d5-8c77-3db3759cb7ce"
+      },
+      "confidence": "low",
+      "region": "coachella-valley",
+      "showtimes_key": null
+    },
+    {
+      "id": "desert-cities-imax",
+      "name": "Desert Cities IMAX",
+      "brand": "",
+      "lat": 33.782586,
+      "lon": -116.461177,
+      "address": "68845 Perez Rd, Cathedral City, CA 92234-7254",
+      "website": "",
+      "imax": false,
+      "sources": [
+        "overture"
+      ],
+      "source_ids": {
+        "overture": "8762038a-645d-4550-8d80-ba54f0384e82"
+      },
+      "confidence": "low",
+      "region": "coachella-valley",
+      "showtimes_key": null
+    },
+    {
+      "id": "festival-theaters",
+      "name": "Festival Theaters",
+      "brand": "",
+      "lat": 33.822626,
+      "lon": -116.539891,
+      "address": "789 East Tahquitz Canyon Way, Palm Springs, CA 92262",
+      "website": "https://festivaltheaters.com/",
+      "imax": false,
+      "sources": [
+        "osm",
+        "overture"
+      ],
+      "source_ids": {
+        "osm": "relation/18118027",
+        "overture": "992408df-be81-4b7c-8e9a-2577038595c8"
+      },
+      "confidence": "high",
+      "region": "coachella-valley",
+      "showtimes_key": null
+    },
+    {
+      "id": "mary-pickford-d-place",
+      "name": "Mary Pickford D Place",
+      "brand": "",
+      "lat": 33.785281,
+      "lon": -116.46503,
+      "address": "68-600 Perez Road, Cathedral City, CA 92234",
+      "website": "http://dplaceentertainment.com/mary-pickford",
+      "imax": false,
+      "sources": [
+        "overture"
+      ],
+      "source_ids": {
+        "overture": "a7444176-61b0-4b20-bb1c-322ad49ccebc"
+      },
+      "confidence": "low",
+      "region": "coachella-valley",
+      "showtimes_key": null
+    },
+    {
+      "id": "mary-pickford-drive-in-experience",
+      "name": "Mary Pickford Drive In Experience",
+      "brand": "",
+      "lat": 33.779259,
+      "lon": -116.464929,
+      "address": "68651 Grove St, Cathedral City, CA 92234",
+      "website": "https://dplaceentertainment.com/page/drive-in-experience",
+      "imax": false,
+      "sources": [
+        "overture"
+      ],
+      "source_ids": {
+        "overture": "6fad36ab-6ad9-4bb9-b389-795cb2c2ced4"
+      },
+      "confidence": "low",
+      "region": "coachella-valley",
+      "showtimes_key": null
+    },
+    {
+      "id": "mary-pickford-theatre",
+      "name": "Mary Pickford Theatre",
+      "brand": "",
+      "lat": 33.780958,
+      "lon": -116.463046,
+      "address": "36850 Pickfair St, Cathedral City, CA 92234",
+      "website": "http://www.dplaceentertainment.com/",
+      "imax": false,
+      "sources": [
+        "osm",
+        "overture"
+      ],
+      "source_ids": {
+        "osm": "node/1967525459",
+        "overture": "3d6ee417-f78b-48d6-ad39-ea6834b12b84"
+      },
+      "confidence": "high",
+      "region": "coachella-valley",
+      "showtimes_key": null
+    },
+    {
+      "id": "movie-colony-palm-springs",
+      "name": "Movie Colony - Palm Springs",
+      "brand": "",
+      "lat": 33.831943,
+      "lon": -116.536292,
+      "address": "1060 E Alejo Rd, Palm Springs, CA 92262-6125",
+      "website": "http://www.moviecolonyhotel.com/",
+      "imax": false,
+      "sources": [
+        "overture"
+      ],
+      "source_ids": {
+        "overture": "a752b25f-4998-43e3-80b0-14ebd5352ca0"
+      },
+      "confidence": "low",
+      "region": "coachella-valley",
+      "showtimes_key": null
+    },
+    {
+      "id": "movie-colony-east",
+      "name": "Movie Colony East",
+      "brand": "",
+      "lat": 33.836411,
+      "lon": -116.5335,
+      "address": "Sunrise to Avenida Caballeros, Palm Springs, CA 92262",
+      "website": "",
+      "imax": false,
+      "sources": [
+        "overture"
+      ],
+      "source_ids": {
+        "overture": "defa291d-0334-4170-891b-c9139fe2147d"
+      },
+      "confidence": "low",
+      "region": "coachella-valley",
+      "showtimes_key": null
+    },
+    {
+      "id": "movies-10",
+      "name": "Movies 10",
+      "brand": "",
+      "lat": 33.798301,
+      "lon": -116.460715,
+      "address": "34491 Date Palm Dr, Cathedral City, CA 92234",
+      "website": "http://www.cinemark.com",
+      "imax": false,
+      "sources": [
+        "osm",
+        "overture"
+      ],
+      "source_ids": {
+        "osm": "way/399718452",
+        "overture": "8601ee18-dffe-4e9b-9e7c-bdfb99aa4c06"
+      },
+      "confidence": "high",
+      "region": "coachella-valley",
+      "showtimes_key": null
+    },
+    {
+      "id": "palm-desert-10",
+      "name": "Palm Desert 10",
+      "brand": "",
+      "lat": 33.724379,
+      "lon": -116.3944,
+      "address": "",
+      "website": "http://palmdesert.tristonecinemas.com/",
+      "imax": false,
+      "sources": [
+        "osm"
+      ],
+      "source_ids": {
+        "osm": "way/737096132"
+      },
+      "confidence": "low",
+      "region": "coachella-valley",
+      "showtimes_key": null
+    },
+    {
+      "id": "ranch-mirage-and-imax",
+      "name": "Ranch Mirage and IMAX",
+      "brand": "Regal",
+      "lat": 33.799746,
+      "lon": -116.392678,
+      "address": "72-777 Dinah Shore Drive, Rancho Mirage, CA 92270",
+      "website": "https://www.regmovies.com/theatres/regal-rancho-mirage-imax/1801",
+      "imax": false,
+      "sources": [
+        "osm",
+        "overture"
+      ],
+      "source_ids": {
+        "osm": "way/738372301",
+        "overture": "498f554c-70ce-457d-b58b-69b924e5f969"
+      },
+      "confidence": "high",
+      "region": "coachella-valley",
+      "showtimes_key": null
+    },
+    {
+      "id": "rancho-16-movie-theaters",
+      "name": "Rancho 16 Movie Theaters",
+      "brand": "",
+      "lat": 33.7984,
+      "lon": -116.460706,
+      "address": "Cathedral City, CA",
+      "website": "",
+      "imax": false,
+      "sources": [
+        "overture"
+      ],
+      "source_ids": {
+        "overture": "65ac62d9-5254-4e87-abca-b48660e00c9e"
+      },
+      "confidence": "low",
+      "region": "coachella-valley",
+      "showtimes_key": null
+    },
+    {
+      "id": "regal-indio-metro",
+      "name": "Regal Indio Metro",
+      "brand": "Regal Cinemas",
+      "lat": 33.708613,
+      "lon": -116.236502,
+      "address": "",
+      "website": "https://www.regmovies.com/theatres/regal-indio-metro/1803",
+      "imax": false,
+      "sources": [
+        "osm"
+      ],
+      "source_ids": {
+        "osm": "way/740016268"
+      },
+      "confidence": "low",
+      "region": "coachella-valley",
+      "showtimes_key": null
+    },
+    {
+      "id": "regency-theatres-cathedral-city",
+      "name": "Regency Theatres - Cathedral City",
+      "brand": "",
+      "lat": 33.798102,
+      "lon": -116.460678,
+      "address": "34491 Date Palm Dr, Cathedral City, CA 92234-6861",
+      "website": "https://www.regencymovies.com",
+      "imax": false,
+      "sources": [
+        "overture"
+      ],
+      "source_ids": {
+        "overture": "a76b6442-d4d7-4f04-ae36-46b96b5454b0"
+      },
+      "confidence": "low",
+      "region": "coachella-valley",
+      "showtimes_key": null
+    },
+    {
+      "id": "the-movie-theater",
+      "name": "The Movie Theater",
+      "brand": "",
+      "lat": 33.708316,
+      "lon": -116.236421,
+      "address": "P.O.Box 1282, Indio, CA 92201",
+      "website": "",
+      "imax": false,
+      "sources": [
+        "overture"
+      ],
+      "source_ids": {
+        "overture": "bc9ff11c-a8be-4479-8ce9-be57415b0a88"
+      },
+      "confidence": "low",
+      "region": "coachella-valley",
+      "showtimes_key": null
+    },
+    {
+      "id": "ultrastar-cinemas",
+      "name": "Ultrastar Cinemas",
+      "brand": "",
+      "lat": 33.78108,
+      "lon": -116.46304,
+      "address": "36850 Pickfair St, Cathedral City, CA 92234-1325",
+      "website": "http://www.ultrastarmovies.com/",
+      "imax": false,
+      "sources": [
+        "overture"
+      ],
+      "source_ids": {
+        "overture": "5ce13dec-59d2-40c6-a5c0-a420722bbc1e"
+      },
+      "confidence": "low",
+      "region": "coachella-valley",
+      "showtimes_key": null
+    }
+  ]
+}
