@@ -1,14 +1,15 @@
 # Theaters build report
 
-Generated: 2026-11-17T06:02:30Z · Overture release: 2026-10-21.0
+Generated: 2026-11-17T06:09:38Z · Overture release: 2026-10-21.0
 
 ## Region: coachella-valley
 
 - OSM cinemas: 9
 - Overture cinemas: 23
-- Matched in both: 7
-- Only OSM: 2
-- Only Overture: 16
+- Matched in both: 9
+- Only OSM (shown, confidence low): 0
+- Overture duplicates merged into a known theater: 8
+- Only Overture (candidates, NOT shown): 6
 
 ### Matched
 
@@ -21,32 +22,36 @@ Generated: 2026-11-17T06:02:30Z · Overture release: 2026-10-21.0
 | Mary Pickford Theatre | Mary Pickford Theatre is D'Place | 26 |
 | Ranch Mirage and IMAX | Regal Rancho Mirage | 32 |
 | Century Theatres at The River | Century at The River and XD | 45 |
+| Palm Desert 10 | Cinemas Palme D'Or | 26 |
+| Regal Indio Metro | The Movie Theater | 34 |
 
 ### Only in OSM
 
-- Palm Desert 10 — way/737096132 — 
-- Regal Indio Metro — way/740016268 — 
 
-### Only in Overture
+### Overture duplicates merged (old names / second listings)
 
-- Movie Colony - Palm Springs — 1060 E Alejo Rd, Palm Springs, CA 92262-6125 — status: open, conf: 0.970666229724884, datasets: Overture, Overture-signals, meta
-- 1010 Movie Colony — 1010 E Via Altamira, Palm Springs, CA 92262-6118 — status: , conf: 0.6777048707008362, datasets: Overture, meta
-- Movie Colony East — Sunrise to Avenida Caballeros, Palm Springs, CA 92262 — status: open, conf: 0.9722161889076233, datasets: Overture, Overture-signals, meta
-- Cinema Diverse — 2300 E Baristo Rd, Palm Springs, CA 92262-7128 — status: open, conf: 0.7783007621765137, datasets: Overture, Overture-signals, meta
-- CDM Movie Theatre — 2700 S Palm Canyon Dr, Palm Springs, CA 92264-9335 — status: , conf: 0.44359976053237915, datasets: Overture, meta
-- Cinemark Century at the River and XD — 71800 CA-111, Rancho Mirage, CA 92270 — status: open, conf: 0.9476428031921387, datasets: Overture, Overture-signals, meta
-- Cinemas Palme D'Or — 72840 Highway 111, Palm Desert, CA 92260 — status: open, conf: 0.6990587115287781, datasets: Foursquare, Overture, Overture-signals
-- The Movie Theater — P.O.Box 1282, Indio, CA 92201 — status: , conf: 0.5715295672416687, datasets: Overture, meta
-- Circle Theatre Acting Co. — 81750 Avenue 46, Indio, CA 92201-3911 — status: , conf: 0.6474285125732422, datasets: Overture, meta
-- Mary Pickford Drive In Experience — 68651 Grove St, Cathedral City, CA 92234 — status: open, conf: 0.9199122190475464, datasets: Microsoft, Overture, Overture-signals
-- D'Place Entertainment — 36850 Pickfair St, Cathedral City, CA 92234-1325 — status: open, conf: 0.9199122190475464, datasets: Overture, Overture-signals, meta
-- Ultrastar Cinemas — 36850 Pickfair St, Cathedral City, CA 92234-1325 — status: open, conf: 0.9208197593688965, datasets: Overture, Overture-signals, meta
-- Desert Cities IMAX — 68845 Perez Rd, Cathedral City, CA 92234-7254 — status: , conf: 0.5244500637054443, datasets: Overture, meta
-- Mary Pickford D Place — 68-600 Perez Road, Cathedral City, CA 92234 — status: open, conf: 0.7570106983184814, datasets: Overture, Overture-signals, meta
-- Rancho 16 Movie Theaters — Cathedral City, CA — status: open, conf: 0.9722161889076233, datasets: Overture, Overture-signals, meta
-- Regency Theatres - Cathedral City — 34491 Date Palm Dr, Cathedral City, CA 92234-6861 — status: open, conf: 0.9194704294204712, datasets: BrightQuery, Overture, Overture-signals
+| Overture name | merged into (OSM) | distance, m |
+|---|---|---|
+| Cinema Diverse | Camelot Theatres | 7 |
+| Cinemark Century at the River and XD | Century Theatres at The River | 46 |
+| Mary Pickford Drive In Experience | Mary Pickford Theatre | 257 |
+| D'Place Entertainment | Mary Pickford Theatre | 14 |
+| Ultrastar Cinemas | Mary Pickford Theatre | 14 |
+| Desert Cities IMAX | Mary Pickford Theatre | 250 |
+| Rancho 16 Movie Theaters | Movies 10 | 11 |
+| Regency Theatres - Cathedral City | Movies 10 | 22 |
 
-### Diagnostics: Overture places with cinema-like names but other categories
+### Candidates — only in Overture, not shown
+Confirm a real theater with `"show": true` in data/overrides.json (key = id below).
+
+- `movie-colony-palm-springs` Movie Colony - Palm Springs — 1060 E Alejo Rd, Palm Springs, CA 92262-6125 — status: open, conf: 0.97, datasets: Overture, Overture-signals, meta
+- `1010-movie-colony` 1010 Movie Colony — 1010 E Via Altamira, Palm Springs, CA 92262-6118 — status: ?, conf: 0.68, datasets: Overture, meta
+- `movie-colony-east` Movie Colony East — Sunrise to Avenida Caballeros, Palm Springs, CA 92262 — status: open, conf: 0.97, datasets: Overture, Overture-signals, meta
+- `cdm-movie-theatre` CDM Movie Theatre — 2700 S Palm Canyon Dr, Palm Springs, CA 92264-9335 — status: ?, conf: 0.44, datasets: Overture, meta
+- `circle-theatre-acting-co` Circle Theatre Acting Co. — 81750 Avenue 46, Indio, CA 92201-3911 — status: ?, conf: 0.65, datasets: Overture, meta
+- `mary-pickford-d-place` Mary Pickford D Place — 68-600 Perez Road, Cathedral City, CA 92234 — status: open, conf: 0.76, datasets: Overture, Overture-signals, meta
+
+<details><summary>Diagnostics: Overture places with cinema-like names but other categories</summary>
 
 | name | basic_category | taxonomy.primary | status |
 |---|---|---|---|
@@ -95,6 +100,8 @@ Generated: 2026-11-17T06:02:30Z · Overture release: 2026-10-21.0
 | Sonic Drive In | fast_food_restaurant | fast_food_restaurant | open |
 | Desert Film Solutions | automotive_service | automotive_repair | open |
 
+</details>
+
 Category values seen on Overture cinemas: movie_theater / drive_in_theater; movie_theater / movie_theater
 
 ## Hidden as closed (Overture operating_status)
@@ -105,32 +112,25 @@ Category values seen on Overture cinemas: movie_theater / drive_in_theater; movi
 
 ## Changes since previous build
 
-- Added: 25
+- Added: 0
+- Removed: 16
   - 1010 Movie Colony (1010-movie-colony)
-  - Camelot Theatres (camelot-theatres)
   - CDM Movie Theatre (cdm-movie-theatre)
-  - Century Theatres at The River (century-theatres-at-the-river)
-  - Century Theatres La Quinta (century-theatres-la-quinta)
   - Cinema Diverse (cinema-diverse)
   - Cinemark Century at the River and XD (cinemark-century-at-the-river-and-xd)
   - Cinemas Palme D'Or (cinemas-palme-d-or)
   - Circle Theatre Acting Co. (circle-theatre-acting-co)
   - D'Place Entertainment (d-place-entertainment)
   - Desert Cities IMAX (desert-cities-imax)
-  - Festival Theaters (festival-theaters)
   - Mary Pickford D Place (mary-pickford-d-place)
   - Mary Pickford Drive In Experience (mary-pickford-drive-in-experience)
-  - Mary Pickford Theatre (mary-pickford-theatre)
   - Movie Colony - Palm Springs (movie-colony-palm-springs)
   - Movie Colony East (movie-colony-east)
-  - Movies 10 (movies-10)
-  - Palm Desert 10 (palm-desert-10)
-  - Ranch Mirage and IMAX (ranch-mirage-and-imax)
   - Rancho 16 Movie Theaters (rancho-16-movie-theaters)
-  - Regal Indio Metro (regal-indio-metro)
   - Regency Theatres - Cathedral City (regency-theatres-cathedral-city)
   - The Movie Theater (the-movie-theater)
   - Ultrastar Cinemas (ultrastar-cinemas)
-- Removed: 0
-- Changed: 0
+- Changed: 2
+  - palm-desert-10
+  - regal-indio-metro
 
