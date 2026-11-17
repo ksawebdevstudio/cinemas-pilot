@@ -34,7 +34,8 @@ REPORT_FILE = ROOT / "public" / "report.md"
 OVERPASS_URL = "https://overpass-api.de/api/interpreter"
 USER_AGENT = "cinemas-pilot/0.1 (+https://github.com/ksawebdevstudio/cinemas-pilot)"
 
-MATCH_RADIUS_M = 300          # max distance for OSM <-> Overture pairing
+MATCH_RADIUS_M = 300          # max distance for OSM <-> Overture pairing by name/brand
+SAME_PLACE_M = 100            # closer than this = same building, even under an old name
 NAME_SIMILARITY = 0.6         # difflib ratio on normalized names
 MAX_DROP = 0.10               # refuse to publish if count drops more than this
 
@@ -181,7 +182,13 @@ def fetch_overture(region, release):
 # ---------------------------------------------------------------- matching & merge
 
 def match(osm, ovt, forced):
-    """Return list of (osm_rec|None, ovt_rec|None)."""
+    """Pair OSM and Overture records.
+
+    Returns (pairs, absorbed):
+      pairs    - list of (osm_rec|None, ovt_rec|None); Overture-only entries become candidates
+      absorbed - list of (ovt_rec, osm_rec, distance): Overture duplicates of a known theater
+                 (old names, second listings of the same building) that are not shown
+    """
     pairs, used_o, used_v = [], set(), set()
     osm_by_id = {r["src_id"]: r for r in osm}
     ovt_by_id = {r["src_id"]: r for r in ovt}
@@ -204,16 +211,36 @@ def match(osm, ovt, forced):
             brand_ok = bool(o["brand"]) and norm_name(o["brand"]) == norm_name(v["brand"])
             if brand_ok or similar(o["name"], v["name"]):
                 candidates.append((d, o, v))
-    for d, o, v in sorted(candidates, key=lambda x: x[0]):
-        if o["src_id"] in used_o or v["src_id"] in used_v:
+    def take(cands):
+        for d, o, v in sorted(cands, key=lambda x: x[0]):
+            if o["src_id"] in used_o or v["src_id"] in used_v:
+                continue
+            pairs.append((o, v))
+            used_o.add(o["src_id"])
+            used_v.add(v["src_id"])
+
+    take(candidates)  # pass 1: close + same brand or similar name
+
+    # pass 2: very close = same building, names may differ (renamed theaters)
+    take([(haversine_m(o["lat"], o["lon"], v["lat"], v["lon"]), o, v)
+          for o in osm if o["src_id"] not in used_o
+          for v in ovt if v["src_id"] not in used_v
+          if haversine_m(o["lat"], o["lon"], v["lat"], v["lon"]) <= SAME_PLACE_M])
+
+    # remaining Overture records near a known OSM theater are duplicates, not new theaters
+    absorbed = []
+    for v in ovt:
+        if v["src_id"] in used_v:
             continue
-        pairs.append((o, v))
-        used_o.add(o["src_id"])
-        used_v.add(v["src_id"])
+        near = min(((haversine_m(o["lat"], o["lon"], v["lat"], v["lon"]), o) for o in osm),
+                   key=lambda x: x[0], default=(None, None))
+        if near[0] is not None and near[0] <= MATCH_RADIUS_M:
+            absorbed.append((v, near[1], near[0]))
+            used_v.add(v["src_id"])
 
     pairs += [(o, None) for o in osm if o["src_id"] not in used_o]
     pairs += [(None, v) for v in ovt if v["src_id"] not in used_v]
-    return pairs
+    return pairs, absorbed
 
 
 def merge(o, v, region_id):
@@ -240,6 +267,7 @@ def merge(o, v, region_id):
         "region": region_id,
         "showtimes_key": None,
         "_closed": bool(v and v["closed"]),
+        "_candidate": o is None,   # Overture-only: not shown until confirmed in overrides
         "_city": pick("city"),
     }
 
@@ -295,6 +323,7 @@ def apply_overrides(theaters, overrides, region_ids):
             t["_hidden"] = True
         if ov.get("show"):
             t["_closed"] = False
+            t["_candidate"] = False
     return theaters
 
 
@@ -322,16 +351,17 @@ def main():
         osm = fetch_osm(region)
         time.sleep(5)
         ovt, hints = fetch_overture(region, release)
-        pairs = match(osm, ovt, forced)
+        pairs, absorbed = match(osm, ovt, forced)
         theaters += [merge(o, v, region["id"]) for o, v in pairs]
-        diag[region["id"]] = {"osm": osm, "overture": ovt, "hints": hints, "pairs": pairs}
+        diag[region["id"]] = {"osm": osm, "overture": ovt, "hints": hints, "pairs": pairs, "absorbed": absorbed}
 
     assign_ids(theaters, previous)
     apply_overrides(theaters, overrides, [r["id"] for r in regions])
 
     closed = [t for t in theaters if t["_closed"]]
     hidden = [t for t in theaters if t.get("_hidden")]
-    public = [t for t in theaters if not t["_closed"] and not t.get("_hidden")]
+    cands = [t for t in theaters if t.get("_candidate") and not t["_closed"] and not t.get("_hidden")]
+    public = [t for t in theaters if not t["_closed"] and not t.get("_hidden") and not t.get("_candidate")]
     public.sort(key=lambda t: (t["region"], t["name"].lower()))
     clean = [{k: v for k, v in t.items() if not k.startswith("_")} for t in public]
 
@@ -354,11 +384,11 @@ def main():
     }
     OUT_FILE.parent.mkdir(parents=True, exist_ok=True)
     OUT_FILE.write_text(json.dumps(doc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    REPORT_FILE.write_text(build_report(now, release, clean, previous, closed, hidden, diag), encoding="utf-8")
+    REPORT_FILE.write_text(build_report(now, release, clean, previous, closed, hidden, cands, diag), encoding="utf-8")
     print(f"OK: {len(clean)} theaters written (Overture {release}).")
 
 
-def build_report(now, release, clean, previous, closed, hidden, diag):
+def build_report(now, release, clean, previous, closed, hidden, cands, diag):
     L = [f"# Theaters build report", "", f"Generated: {now} · Overture release: {release}", ""]
     for rid, d in diag.items():
         pairs = d["pairs"]
@@ -367,20 +397,28 @@ def build_report(now, release, clean, previous, closed, hidden, diag):
         only_v = [p[1] for p in pairs if p[1] and not p[0]]
         L += [f"## Region: {rid}", "",
               f"- OSM cinemas: {len(d['osm'])}", f"- Overture cinemas: {len(d['overture'])}",
-              f"- Matched in both: {len(both)}", f"- Only OSM: {len(only_o)}", f"- Only Overture: {len(only_v)}", ""]
+              f"- Matched in both: {len(both)}", f"- Only OSM (shown, confidence low): {len(only_o)}",
+              f"- Overture duplicates merged into a known theater: {len(d['absorbed'])}",
+              f"- Only Overture (candidates, NOT shown): {len(only_v)}", ""]
         L += ["### Matched", "", "| OSM name | Overture name | distance, m |", "|---|---|---|"]
         for o, v in both:
             L.append(f"| {o['name']} | {v['name']} | {haversine_m(o['lat'], o['lon'], v['lat'], v['lon']):.0f} |")
         L += ["", "### Only in OSM", ""] + [f"- {o['name'] or '(no name)'} — {o['src_id']} — {o['address']}" for o in only_o]
-        L += ["", "### Only in Overture", ""] + [
-            f"- {v['name']} — {v['address']} — status: {v['operating_status']}, conf: {v['confidence']}, "
-            f"datasets: {', '.join(v['datasets'])}" for v in only_v]
-        L += ["", "### Diagnostics: Overture places with cinema-like names but other categories", "",
+        L += ["", "### Overture duplicates merged (old names / second listings)", "",
+              "| Overture name | merged into (OSM) | distance, m |", "|---|---|---|"]
+        L += [f"| {v['name']} | {o['name']} | {dist:.0f} |" for v, o, dist in d["absorbed"]]
+        L += ["", "### Candidates — only in Overture, not shown",
+              "Confirm a real theater with `\"show\": true` in data/overrides.json (key = id below).", ""]
+        cand_ids = {t["source_ids"].get("overture"): t["id"] for t in cands + closed}
+        L += [
+            f"- `{cand_ids.get(v['src_id'], '?')}` {v['name']} — {v['address']} — status: {v['operating_status'] or '?'}, "
+            f"conf: {(v['confidence'] or 0):.2f}, datasets: {', '.join(v['datasets'])}" for v in only_v]
+        L += ["", "<details><summary>Diagnostics: Overture places with cinema-like names but other categories</summary>", "",
               "| name | basic_category | taxonomy.primary | status |", "|---|---|---|---|"]
         for h in d["hints"]:
             L.append(f"| {h['name']} | {h['basic_category']} | {h['taxonomy_primary']} | {h['operating_status']} |")
         cats = sorted({(v["basic_category"], v["taxonomy_primary"]) for v in d["overture"]}, key=str)
-        L += ["", "Category values seen on Overture cinemas: " + "; ".join(f"{a} / {b}" for a, b in cats), ""]
+        L += ["", "</details>", "", "Category values seen on Overture cinemas: " + "; ".join(f"{a} / {b}" for a, b in cats), ""]
 
     L += ["## Hidden as closed (Overture operating_status)", ""] + [f"- {t['name']} ({t['id']})" for t in closed]
     L += ["", "## Hidden by overrides", ""] + [f"- {t['name']} ({t['id']})" for t in hidden]
