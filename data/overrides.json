@@ -1,0 +1,3 @@
+{
+  "_help": "Manual fixes. Key = theater id from public/theaters.json. Fields: any theater field to replace (name, website, address, imax, showtimes_key), hidden: true to hide, show: true to keep a record the sources mark as closed, match: {osm, overture} to force-pair records, add: true (with name, lat, lon) to add a theater by hand. Keys starting with _ are ignored."
+}

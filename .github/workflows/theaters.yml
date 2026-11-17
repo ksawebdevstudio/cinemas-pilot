@@ -1,0 +1,52 @@
+name: Build theaters database
+
+on:
+  workflow_dispatch:
+    inputs:
+      force:
+        description: "Skip the count-drop safeguard"
+        type: boolean
+        default: false
+  schedule:
+    - cron: "17 11 3 * *"   # 3rd of every month, 11:17 UTC
+
+permissions:
+  contents: write
+
+concurrency:
+  group: theaters
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Build database
+        run: python scripts/build_theaters.py ${{ inputs.force && '--force' || '' }}
+
+      - name: Show report
+        if: always()
+        run: cat public/report.md >> "$GITHUB_STEP_SUMMARY" || true
+
+      - name: Commit result
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/theaters.json public/report.md
+          if git diff --cached --quiet; then
+            echo "No changes."
+          else
+            git commit -m "Update theaters database"
+            git push
+          fi
