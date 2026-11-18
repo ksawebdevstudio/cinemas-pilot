@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-18T19:12:19Z",
+  "generated": "2026-11-18T19:14:14Z",
   "sources": {
     "osm": "Overpass API",
     "overture_release": "2026-11-18.0"
@@ -35,7 +35,7 @@
       "brand": "Cinemark",
       "lat": 33.740093,
       "lon": -116.409684,
-      "address": "71800 Highway 111, Rancho Mirage, 92270",
+      "address": "71800 Highway 111, Rancho Mirage, CA 92270",
       "website": "https://www.cinemark.com/theatre-detail.aspx?node_id=1684",
       "imax": false,
       "sources": [

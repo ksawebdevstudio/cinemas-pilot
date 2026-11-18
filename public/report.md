@@ -1,6 +1,6 @@
 # Theaters build report
 
-Generated: 2026-11-18T19:12:19Z · Overture release: 2026-11-18.0
+Generated: 2026-11-18T19:14:14Z · Overture release: 2026-11-18.0
 
 ## Region: coachella-valley
 
@@ -125,7 +125,6 @@ Category values seen on Overture cinemas: movie_theater / drive_in_theater; movi
 
 - Added: 0
 - Removed: 0
-- Changed: 2
-  - camelot-theatres
-  - mary-pickford-theatre
+- Changed: 1
+  - century-theatres-at-the-river
 
