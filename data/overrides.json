@@ -1,6 +1,5 @@
 {
   "_help": "Manual fixes. Key = theater id from public/theaters.json. Fields: any theater field to replace (name, brand, website, address, imax, showtimes_key), hidden: true to hide, show: true to show a candidate or a record marked closed, match: {osm, overture} to force-pair records, add: true (with name, lat, lon) to add a theater by hand. Keys starting with _ are ignored; _note is free text.",
-
   "ranch-mirage-and-imax": {
     "_note": "OSM name has a typo",
     "name": "Regal Rancho Mirage & IMAX",
@@ -24,15 +23,52 @@
   "camelot-theatres": {
     "name": "Camelot Theatres (Palm Springs Cultural Center)"
   },
-
-  "movies-10": { "hidden": true, "_note": "Closed May 2022 (Cathedral City 10 / Cinemark Movies 10)" },
-  "palm-desert-10": { "hidden": true, "_note": "Closed Feb 2023 (Tristone Palm Desert 10)" },
-  "regal-indio-metro": { "hidden": true, "_note": "Closed Mar 2020; building is now a Desert Recreation District center" },
-
-  "movie-colony-palm-springs": { "hidden": true, "_note": "Neighborhood, not a theater" },
-  "1010-movie-colony": { "hidden": true, "_note": "Neighborhood/address, not a theater" },
-  "movie-colony-east": { "hidden": true, "_note": "Neighborhood, not a theater" },
-  "cdm-movie-theatre": { "hidden": true, "_note": "Not a public theater" },
-  "circle-theatre-acting-co": { "hidden": true, "_note": "Acting company, not a cinema" },
-  "mary-pickford-d-place": { "hidden": true, "_note": "Duplicate of Mary Pickford Theatre" }
+  "movies-10": {
+    "hidden": true,
+    "_note": "Closed May 2022 (Cathedral City 10 / Cinemark Movies 10)"
+  },
+  "palm-desert-10": {
+    "hidden": true,
+    "_note": "Closed Feb 2023 (Tristone Palm Desert 10)"
+  },
+  "regal-indio-metro": {
+    "hidden": true,
+    "_note": "Closed Mar 2020; building is now a Desert Recreation District center"
+  },
+  "movie-colony-palm-springs": {
+    "hidden": true,
+    "_note": "Neighborhood, not a theater"
+  },
+  "1010-movie-colony": {
+    "hidden": true,
+    "_note": "Neighborhood/address, not a theater"
+  },
+  "movie-colony-east": {
+    "hidden": true,
+    "_note": "Neighborhood, not a theater"
+  },
+  "cdm-movie-theatre": {
+    "hidden": true,
+    "_note": "Not a public theater"
+  },
+  "circle-theatre-acting-co": {
+    "hidden": true,
+    "_note": "Acting company, not a cinema"
+  },
+  "mary-pickford-d-place": {
+    "hidden": true,
+    "_note": "Duplicate of Mary Pickford Theatre"
+  },
+  "desert-cities-imax": {
+    "hidden": true,
+    "_note": "Desert IMAX Theatre closed; next to Mary Pickford"
+  },
+  "cdm-movie-theater": {
+    "hidden": true,
+    "_note": "Not a public theater"
+  },
+  "the-movie-theater": {
+    "hidden": true,
+    "_note": "Old listing of closed Regal Indio Metro"
+  }
 }

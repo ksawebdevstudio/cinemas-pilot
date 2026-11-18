@@ -174,7 +174,7 @@ def fetch_overture(region, release):
                 a = addrs[0] or {}  # skip P.O. boxes: not a place a visitor can drive to
                 rec["city"] = a.get("locality") or ""
                 rec["address"] = ", ".join(x for x in [a.get("freeform"), a.get("locality"), " ".join(
-                    x for x in [a.get("region"), a.get("postcode")] if x)] if x)
+                    x for x in [re.sub(r"^US-", "", a.get("region") or ""), a.get("postcode")] if x)] if x)
             (cinemas if is_cinema else hints).append(rec)
     return cinemas, hints
 
