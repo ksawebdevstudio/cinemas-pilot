@@ -412,7 +412,7 @@ def build_report(now, release, clean, previous, closed, hidden, cands, diag):
         cand_ids = {t["source_ids"].get("overture"): t["id"] for t in cands + closed}
         L += [
             f"- `{cand_ids.get(v['src_id'], '?')}` {v['name']} — {v['address']} — status: {v['operating_status'] or '?'}, "
-            f"conf: {(v['confidence'] or 0):.2f}, datasets: {', '.join(v['datasets'])}" for v in only_v]
+            f"conf: {(v['confidence'] or 0):.2f}, datasets: {', '.join(v['datasets'])}" for v in only_v if v["src_id"] in cand_ids]
         L += ["", "<details><summary>Diagnostics: Overture places with cinema-like names but other categories</summary>", "",
               "| name | basic_category | taxonomy.primary | status |", "|---|---|---|---|"]
         for h in d["hints"]:
