@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-18T19:09:20Z",
+  "generated": "2026-11-18T19:12:19Z",
   "sources": {
     "osm": "Overpass API",
     "overture_release": "2026-11-18.0"
@@ -14,7 +14,7 @@
       "brand": "",
       "lat": 33.820007,
       "lon": -116.521188,
-      "address": "2300 E Baristo Rd, Palm Springs, US-CA 92262-7128",
+      "address": "2300 E Baristo Rd, Palm Springs, CA 92262-7128",
       "website": "https://www.camelottheatres.com/",
       "imax": false,
       "sources": [
@@ -98,7 +98,7 @@
       "brand": "D'Place Entertainment",
       "lat": 33.780958,
       "lon": -116.463046,
-      "address": "36850 Pickfair St, Cathedral City, US-CA 92234",
+      "address": "36850 Pickfair St, Cathedral City, CA 92234",
       "website": "http://www.dplaceentertainment.com/",
       "imax": false,
       "sources": [

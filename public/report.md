@@ -1,6 +1,6 @@
 # Theaters build report
 
-Generated: 2026-11-18T19:09:20Z · Overture release: 2026-11-18.0
+Generated: 2026-11-18T19:12:19Z · Overture release: 2026-11-18.0
 
 ## Region: coachella-valley
 
@@ -43,9 +43,6 @@ Generated: 2026-11-18T19:09:20Z · Overture release: 2026-11-18.0
 ### Candidates — only in Overture, not shown
 Confirm a real theater with `"show": true` in data/overrides.json (key = id below).
 
-- `desert-cities-imax` Desert Cities IMAX — 68845 Perez Rd, Cathedral City, US-CA 92234-7254 — status: ?, conf: 0.55, datasets: Overture, meta
-- `cdm-movie-theater` CDM Movie Theater — Palm Desert, US-CA — status: ?, conf: 0.54, datasets: Overture, meta
-- `the-movie-theater` The Movie Theater —  — status: ?, conf: 0.62, datasets: Overture, meta
 
 <details><summary>Diagnostics: Overture places with cinema-like names but other categories</summary>
 
@@ -115,23 +112,20 @@ Category values seen on Overture cinemas: movie_theater / drive_in_theater; movi
 - Palm Desert 10 (palm-desert-10)
 - Regal Indio Metro (regal-indio-metro)
 - Mary Pickford D Place (mary-pickford-d-place)
+- Desert Cities IMAX (desert-cities-imax)
 - CDM Movie Theatre (cdm-movie-theatre)
+- CDM Movie Theater (cdm-movie-theater)
 - Movie Colony - Palm Springs (movie-colony-palm-springs)
 - 1010 Movie Colony (1010-movie-colony)
 - Movie Colony East (movie-colony-east)
 - Circle Theatre Acting Co. (circle-theatre-acting-co)
+- The Movie Theater (the-movie-theater)
 
 ## Changes since previous build
 
 - Added: 0
-- Removed: 3
-  - Movies 10 (movies-10)
-  - Palm Desert 10 (palm-desert-10)
-  - Regal Indio Metro (regal-indio-metro)
-- Changed: 5
+- Removed: 0
+- Changed: 2
   - camelot-theatres
-  - century-theatres-at-the-river
-  - century-theatres-la-quinta
   - mary-pickford-theatre
-  - ranch-mirage-and-imax
 
