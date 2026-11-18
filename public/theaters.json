@@ -1,20 +1,20 @@
 {
-  "generated": "2026-11-17T06:09:38Z",
+  "generated": "2026-11-18T19:09:20Z",
   "sources": {
     "osm": "Overpass API",
-    "overture_release": "2026-10-21.0"
+    "overture_release": "2026-11-18.0"
   },
   "attribution": "© OpenStreetMap contributors (ODbL); Overture Maps Foundation",
   "license": "ODbL-1.0",
-  "count": 9,
+  "count": 6,
   "theaters": [
     {
       "id": "camelot-theatres",
-      "name": "Camelot Theatres",
+      "name": "Camelot Theatres (Palm Springs Cultural Center)",
       "brand": "",
       "lat": 33.820007,
       "lon": -116.521188,
-      "address": "2300 E Baristo Rd, Palm Springs, CA 92262",
+      "address": "2300 E Baristo Rd, Palm Springs, US-CA 92262-7128",
       "website": "https://www.camelottheatres.com/",
       "imax": false,
       "sources": [
@@ -31,8 +31,8 @@
     },
     {
       "id": "century-theatres-at-the-river",
-      "name": "Century Theatres at The River",
-      "brand": "Century Theatres",
+      "name": "Cinemark Century at the River and XD",
+      "brand": "Cinemark",
       "lat": 33.740093,
       "lon": -116.409684,
       "address": "71800 Highway 111, Rancho Mirage, 92270",
@@ -52,8 +52,8 @@
     },
     {
       "id": "century-theatres-la-quinta",
-      "name": "Century Theatres La Quinta",
-      "brand": "Century Theatres",
+      "name": "Cinemark Century La Quinta XD and ScreenX",
+      "brand": "Cinemark",
       "lat": 33.708953,
       "lon": -116.292641,
       "address": "46800 Washington Street, La Quinta, CA 92253",
@@ -95,10 +95,10 @@
     {
       "id": "mary-pickford-theatre",
       "name": "Mary Pickford Theatre",
-      "brand": "",
+      "brand": "D'Place Entertainment",
       "lat": 33.780958,
       "lon": -116.463046,
-      "address": "36850 Pickfair St, Cathedral City, CA 92234",
+      "address": "36850 Pickfair St, Cathedral City, US-CA 92234",
       "website": "http://www.dplaceentertainment.com/",
       "imax": false,
       "sources": [
@@ -114,56 +114,14 @@
       "showtimes_key": null
     },
     {
-      "id": "movies-10",
-      "name": "Movies 10",
-      "brand": "",
-      "lat": 33.798301,
-      "lon": -116.460715,
-      "address": "34491 Date Palm Dr, Cathedral City, CA 92234",
-      "website": "http://www.cinemark.com",
-      "imax": false,
-      "sources": [
-        "osm",
-        "overture"
-      ],
-      "source_ids": {
-        "osm": "way/399718452",
-        "overture": "8601ee18-dffe-4e9b-9e7c-bdfb99aa4c06"
-      },
-      "confidence": "high",
-      "region": "coachella-valley",
-      "showtimes_key": null
-    },
-    {
-      "id": "palm-desert-10",
-      "name": "Palm Desert 10",
-      "brand": "",
-      "lat": 33.724379,
-      "lon": -116.3944,
-      "address": "72840 Highway 111, Palm Desert, CA 92260",
-      "website": "http://palmdesert.tristonecinemas.com/",
-      "imax": false,
-      "sources": [
-        "osm",
-        "overture"
-      ],
-      "source_ids": {
-        "osm": "way/737096132",
-        "overture": "11fc8420-f3ff-44f8-9f44-80adb85ff0a8"
-      },
-      "confidence": "high",
-      "region": "coachella-valley",
-      "showtimes_key": null
-    },
-    {
       "id": "ranch-mirage-and-imax",
-      "name": "Ranch Mirage and IMAX",
+      "name": "Regal Rancho Mirage & IMAX",
       "brand": "Regal",
       "lat": 33.799746,
       "lon": -116.392678,
       "address": "72-777 Dinah Shore Drive, Rancho Mirage, CA 92270",
       "website": "https://www.regmovies.com/theatres/regal-rancho-mirage-imax/1801",
-      "imax": false,
+      "imax": true,
       "sources": [
         "osm",
         "overture"
@@ -171,27 +129,6 @@
       "source_ids": {
         "osm": "way/738372301",
         "overture": "498f554c-70ce-457d-b58b-69b924e5f969"
-      },
-      "confidence": "high",
-      "region": "coachella-valley",
-      "showtimes_key": null
-    },
-    {
-      "id": "regal-indio-metro",
-      "name": "Regal Indio Metro",
-      "brand": "Regal Cinemas",
-      "lat": 33.708613,
-      "lon": -116.236502,
-      "address": "P.O.Box 1282, Indio, CA 92201",
-      "website": "https://www.regmovies.com/theatres/regal-indio-metro/1803",
-      "imax": false,
-      "sources": [
-        "osm",
-        "overture"
-      ],
-      "source_ids": {
-        "osm": "way/740016268",
-        "overture": "bc9ff11c-a8be-4479-8ce9-be57415b0a88"
       },
       "confidence": "high",
       "region": "coachella-valley",
